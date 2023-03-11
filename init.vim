@@ -1,0 +1,61 @@
+:set number
+:set relativenumber
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+
+call plug#begin()
+
+
+" Built-in LSP support
+Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig' " Enable LSP
+Plug 'williamboman/nvim-lsp-installer'
+
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
+call plug#end()
+
+set encoding=UTF-8
+
+nnoremap <F12> :NERDTreeToggle<CR>
+nnoremap <silent>ff <cmd>Telescope find_files<cr>
+nnoremap <silent>F <cmd>Telescope live_grep<cr>
+" nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
+
+" Moving lines up and down
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+nnoremap <silent>∂ yy p k<CR>
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+
+:colorscheme gruvbox
+nmap <silent> gr <Plug>(coc-references)
+
+lua require("user.lsp")
