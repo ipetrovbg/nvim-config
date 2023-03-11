@@ -4,4 +4,5 @@ It uses a couple of plugins for:
 - fuzzy find
 - programming languages support
 - status bar information
+- folder tree
 - etc.
