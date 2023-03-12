@@ -1,4 +1,4 @@
-:set number
+set number
 :set relativenumber
 :set autoindent
 :set tabstop=4
@@ -13,7 +13,7 @@ call plug#begin()
 
 " Built-in LSP support
 Plug 'neovim/nvim-lsp'
-Plug 'neovim/nvim-lspconfig' " Eble LSP
+Plug 'neovim/nvim-lspconfig' " Enable LSP
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'hrsh7th/nvim-cmp'
