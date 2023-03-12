@@ -13,7 +13,7 @@ call plug#begin()
 
 " Built-in LSP support
 Plug 'neovim/nvim-lsp'
-Plug 'neovim/nvim-lspconfig' " Enable LSP
+Plug 'neovim/nvim-lspconfig' " Eble LSP
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'hrsh7th/nvim-cmp'
@@ -38,6 +38,7 @@ Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
 
