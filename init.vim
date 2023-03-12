@@ -6,6 +6,7 @@
 :set smarttab
 :set softtabstop=4
 :set mouse=a
+:set splitright
 
 call plug#begin()
 
@@ -20,6 +21,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'https://github.com/tpope/vim-fugitive' " Git integration
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
@@ -43,6 +46,7 @@ set encoding=UTF-8
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
+nnoremap <silent>K <cmd>Telescope git_status<cr>
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 
 " Moving lines up and down
@@ -55,7 +59,16 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 nnoremap <silent>∂ yy p k<CR>
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
-:colorscheme gruvbox
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references) 
 
+" Switching between screens
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Theme
+:colorscheme gruvbox
+
+" Lua settings
 lua require("user.lsp")
