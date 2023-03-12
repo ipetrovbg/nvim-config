@@ -47,10 +47,12 @@ nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
 nnoremap <silent>D <cmd>Telescope git_status<cr>
-" <Alt+D> populate command line with :G commit -m
+" <Alt+D> populate command line with :G commit -m ""
 nnoremap Î :G commit -m  "<LEFT>"
-" nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
+" <Alt+P> populate command line with :G push
+nnoremap ∏ :G push
 
+" nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 " Moving lines up and down
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
