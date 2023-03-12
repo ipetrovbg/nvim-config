@@ -45,6 +45,8 @@ nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
 nnoremap <silent>D <cmd>Telescope git_status<cr>
+
+" Git commands
 " <Alt+D> populate command line with :G commit -m ""
 " nnoremap Î :G commit -m  "<LEFT>"
 " <Alt+P> populate command line with :G push
@@ -52,6 +54,7 @@ nnoremap ∏ :G push
 nnoremap <leader>c :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> 
 
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
+
 " Moving lines up and down
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
