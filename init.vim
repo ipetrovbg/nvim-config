@@ -46,7 +46,7 @@ set encoding=UTF-8
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
-nnoremap <silent>K <cmd>Telescope git_status<cr>
+nnoremap <silent>D <cmd>Telescope git_status<cr>
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 
 " Moving lines up and down
