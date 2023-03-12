@@ -48,7 +48,7 @@ nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
 nnoremap <silent>D <cmd>Telescope git_status<cr>
 " <Alt+D> populate command line with :G commit -m
-nnoremap Î :G commit -m <CR>
+nnoremap Î :G commit -m  "<LEFT>"
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 
 " Moving lines up and down
