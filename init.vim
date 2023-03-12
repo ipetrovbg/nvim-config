@@ -48,8 +48,8 @@ nnoremap <silent>D <cmd>Telescope git_status<cr>
 " <Alt+D> populate command line with :G commit -m ""
 nnoremap Î :G commit -m  "<LEFT>"
 " <Alt+P> populate command line with :G push
-" nnoremap ∏ :G push
-nnoremap ∏ :G commit -m  "<LEFT>" \| :G push
+nnoremap ∏ :G push
+nnoremap ∏ :G commit -m  "<LEFT>"<CR> :G push
 
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 " Moving lines up and down
