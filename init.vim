@@ -46,11 +46,10 @@ nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
 nnoremap <silent>D <cmd>Telescope git_status<cr>
 " <Alt+D> populate command line with :G commit -m ""
-nnoremap Î :G commit -m  "<LEFT>"
+" nnoremap Î :G commit -m  "<LEFT>"
 " <Alt+P> populate command line with :G push
 nnoremap ∏ :G push
-" nnoremap ∏ :G commit -m  "<LEFT>" <CR> :G push
-nnoremap <leader>x :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> <bar> :G push
+nnoremap <leader>c :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> 
 
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 " Moving lines up and down
