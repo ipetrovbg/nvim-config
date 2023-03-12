@@ -7,9 +7,9 @@
 :set softtabstop=4
 :set mouse=a
 :set splitright
+:set encoding=UTF-8
 
 call plug#begin()
-
 
 " Built-in LSP support
 Plug 'neovim/nvim-lsp'
@@ -40,8 +40,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
 call plug#end()
-
-set encoding=UTF-8
 
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
