@@ -74,8 +74,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" TODO: find a way to make this mapping
+"capitalises the first letter of every word in a selection
+" vnoremap <leader>c execute "'<,'> s/\<\(.\)\(\w*\)/\u\1\L\2/g"<CR> 
+
 " Theme
 :colorscheme gruvbox
 
 " Lua settings
 lua require("user.lsp")
+
