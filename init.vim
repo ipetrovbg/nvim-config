@@ -50,7 +50,7 @@ nnoremap Î :G commit -m  "<LEFT>"
 " <Alt+P> populate command line with :G push
 nnoremap ∏ :G push
 " nnoremap ∏ :G commit -m  "<LEFT>" <CR> :G push
-nnoremap <leader>x :echo "Enter input: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> <bar> :G push
+nnoremap <leader>x :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> <bar> :G push
 
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 " Moving lines up and down
