@@ -55,19 +55,22 @@ nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <F10> :NERDTreeFind<CR>
 
 nnoremap <silent>ff <cmd>Telescope find_files<CR>
-nnoremap <silent>F <cmd>Telescope live_grep<CR>
+nnoremap <silent>F <cmd>Telescope current_buffer_fuzzy_find<CR>
 nnoremap <silent>D <cmd>Telescope git_status<CR>
 " Option+b
 nnoremap <silent>∫ <cmd>Telescope buffers<CR>
 " Shift+Option+;
-nnoremap Ú <cmd>Telescope commands<CR>
+nnoremap Ú <cmd>Telescope command_history<CR>
+
+" Experiment with Telescope as window
+" nnoremap ∞ <cmd>Telescope :echo "Hello World!"<CR>
 
 " Option + f 
 nnoremap <silent>ƒ <cmd>Telescope colorscheme<CR>
 " Option+g 
 nnoremap <silent>© <cmd>Telescope quickfix<CR>
 " Shift+Option+f
-nnoremap Ï <cmd>Telescope grep_string<CR>
+nnoremap Ï <cmd>Telescope live_grep<CR>
 " Git commands
 nnoremap ∏ :G push
 nnoremap <leader>c :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> 
