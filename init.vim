@@ -62,9 +62,6 @@ nnoremap <silent>∫ <cmd>Telescope buffers<CR>
 " Shift+Option+;
 nnoremap Ú <cmd>Telescope command_history<CR>
 
-" Experiment with Telescope as window
-" nnoremap ∞ <cmd>Telescope :echo "Hello World!"<CR>
-
 " Option + f 
 nnoremap <silent>ƒ <cmd>Telescope colorscheme<CR>
 " Option+g 
