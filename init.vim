@@ -57,27 +57,36 @@ nnoremap <F10> :NERDTreeFind<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<CR>
 nnoremap <silent>F <cmd>Telescope live_grep<CR>
 nnoremap <silent>D <cmd>Telescope git_status<CR>
+" Option+b
 nnoremap <silent>∫ <cmd>Telescope buffers<CR>
+" Shift+Option+;
+nnoremap Ú <cmd>Telescope commands<CR>
 
-" Option + f - opens colorscheme picket with telescope
+" Option + f 
 nnoremap <silent>ƒ <cmd>Telescope colorscheme<CR>
+" Option+g 
 nnoremap <silent>© <cmd>Telescope quickfix<CR>
+" Shift+Option+f
+nnoremap Ï <cmd>Telescope grep_string<CR>
 " Git commands
-" <Alt+D> populate command line with :G commit -m ""
-" nnoremap Î :G commit -m  "<LEFT>"
-" <Alt+P> populate command line with :G push
 nnoremap ∏ :G push
 nnoremap <leader>c :echo "Commit message: "<bar>let input = input("")<bar>execute ":G commit -m '" . input . "'"<CR> 
 
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 
-" Moving lines up and down
+" Moving lines up and down with Option+j/k
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
+nnoremap § vuw<CR>
 inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
+
+" Copy to main clipboard - Shift+Option+c
+vnoremap Ç "*y
+
 vnoremap ˚ :m '<-2<CR>gv=gv
+" Option+d
 nnoremap <silent>∂ yy p k<CR>
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 nnoremap <C-a> ggVG<CR>
@@ -89,6 +98,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Space> <C-w>w
+" Shift+Option+l
+nnoremap Ò<cmd> Telescope help_tags<CR>
 
 " TODO: find a way to make this mapping
 "capitalises the first letter of every word in a selection

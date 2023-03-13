@@ -22,7 +22,7 @@ require('gitsigns').setup {
 		end, {expr=true})
 
 		map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-		map('n', '<leader>hd', gs.diffthis)
+		map('n', '', gs.diffthis)
 
 	end
 }
