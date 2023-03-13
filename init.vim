@@ -16,6 +16,12 @@ Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig' " Enable LSP
 Plug 'williamboman/nvim-lsp-installer'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" TODO: Find why these two wouldn't work :(
+Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -24,7 +30,9 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 
 Plug 'https://github.com/tpope/vim-fugitive' " Git integration
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Tree icons TODO: doesn't work either
+Plug 'nvim-tree/nvim-web-devicons'
+
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
@@ -41,6 +49,8 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
+
+lua require("nvim-autopairs").setup {}
 
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
@@ -73,6 +83,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <Space> <C-w>w
 
 " TODO: find a way to make this mapping
 "capitalises the first letter of every word in a selection
@@ -83,4 +94,4 @@ nnoremap <C-H> <C-W><C-H>
 
 " Lua settings
 lua require("user.lsp")
-
+lua require("user.icons")
