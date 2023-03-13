@@ -29,6 +29,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
 Plug 'https://github.com/tpope/vim-fugitive' " Git integration
+Plug 'lewis6991/gitsigns.nvim'
 
 " Tree icons TODO: doesn't work either
 Plug 'nvim-tree/nvim-web-devicons'
@@ -51,11 +52,12 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 lua require("nvim-autopairs").setup {}
-
 nnoremap <F12> :NERDTreeToggle<CR>
+nnoremap <F10> :NERDTreeFind<CR>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>F <cmd>Telescope live_grep<cr>
 nnoremap <silent>D <cmd>Telescope git_status<cr>
+nnoremap <silent>π <cmd>Telescope buffers<CR>
 
 " Git commands
 " <Alt+D> populate command line with :G commit -m ""
@@ -93,5 +95,6 @@ nnoremap <Space> <C-w>w
 :colorscheme gruvbox
 
 " Lua settings
+lua require("user.gitsigns_rc")
 lua require("user.lsp")
 lua require("user.icons")
