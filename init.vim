@@ -80,7 +80,7 @@ vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 nnoremap <silent>∂ yy p k<CR>
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
-
+nnoremap <C-a> ggVG<CR>
 nmap <silent> gr <Plug>(coc-references) 
 
 " Switching between screens
