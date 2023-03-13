@@ -18,7 +18,6 @@ Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" TODO: Find why these two wouldn't work :(
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
 
@@ -54,11 +53,15 @@ call plug#end()
 lua require("nvim-autopairs").setup {}
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <F10> :NERDTreeFind<CR>
-nnoremap <silent>ff <cmd>Telescope find_files<cr>
-nnoremap <silent>F <cmd>Telescope live_grep<cr>
-nnoremap <silent>D <cmd>Telescope git_status<cr>
-nnoremap <silent>π <cmd>Telescope buffers<CR>
 
+nnoremap <silent>ff <cmd>Telescope find_files<CR>
+nnoremap <silent>F <cmd>Telescope live_grep<CR>
+nnoremap <silent>D <cmd>Telescope git_status<CR>
+nnoremap <silent>∫ <cmd>Telescope buffers<CR>
+
+" Option + f - opens colorscheme picket with telescope
+nnoremap <silent>ƒ <cmd>Telescope colorscheme<CR>
+nnoremap <silent>© <cmd>Telescope quickfix<CR>
 " Git commands
 " <Alt+D> populate command line with :G commit -m ""
 " nnoremap Î :G commit -m  "<LEFT>"
@@ -92,7 +95,7 @@ nnoremap <Space> <C-w>w
 " vnoremap <leader>c execute "'<,'> s/\<\(.\)\(\w*\)/\u\1\L\2/g"<CR> 
 
 " Theme
-:colorscheme gruvbox
+:colorscheme OceanicNext
 
 " Lua settings
 lua require("user.gitsigns_rc")
