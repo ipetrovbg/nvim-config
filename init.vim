@@ -51,8 +51,15 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 lua require("nvim-autopairs").setup {}
+" nnoremap j zz<CR>
+" nnoremap k zz<CR>
+nnoremap j jzz
+nnoremap k kzz
+nnoremap <Down> jzz
+nnoremap <Up> kzz
+
 nnoremap <F12> :NERDTreeToggle<CR>
-nnoremap <F10> :NERDTreeFind<CR>
+nnoremap <F10> :NERDTreeFind<CR><bar>zz
 
 nnoremap <silent>ff <cmd>Telescope find_files<CR>
 nnoremap <silent>F <cmd>Telescope current_buffer_fuzzy_find<CR>
@@ -82,8 +89,12 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 
+" Shift+Optioin+]
+nnoremap ’ viw "*y<Esc>/<C-R><C-O>+
 " Copy to main clipboard - Shift+Option+c
 vnoremap Ç "*y
+" Shift+Option+/ - Clear search selection
+nnoremap ¿ <Esc>:noh<CR>
 
 vnoremap ˚ :m '<-2<CR>gv=gv
 " Option+d
