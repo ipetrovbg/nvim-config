@@ -56,8 +56,6 @@ nnoremap <Down> jzz
 nnoremap <Up> kzz
 nnoremap } }zz
 nnoremap { {zz
-" nnoremap <Space> :echo "Hello"<CR>
-nnoremap <S-Space> :echo "Hello world"<CR>
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <F10> :NERDTreeFind<CR><bar>zz
 
