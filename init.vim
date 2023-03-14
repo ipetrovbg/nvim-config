@@ -50,14 +50,14 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
 
-lua require("nvim-autopairs").setup {}
-" nnoremap j zz<CR>
-" nnoremap k zz<CR>
 nnoremap j jzz
 nnoremap k kzz
 nnoremap <Down> jzz
 nnoremap <Up> kzz
-
+nnoremap } }zz
+nnoremap { {zz
+" nnoremap <Space> :echo "Hello"<CR>
+nnoremap <S-Space> :echo "Hello world"<CR>
 nnoremap <F12> :NERDTreeToggle<CR>
 nnoremap <F10> :NERDTreeFind<CR><bar>zz
 
@@ -82,8 +82,8 @@ nnoremap <leader>c :echo "Commit message: "<bar>let input = input("")<bar>execut
 " nnoremap <silent>gd <cmd>Telescope lsp_definitions<CR>
 
 " Moving lines up and down with Option+j/k
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
+nnoremap ∆ :m .+1<CR>==zz
+nnoremap ˚ :m .-2<CR>==zz
 nnoremap § vuw<CR>
 inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
@@ -108,7 +108,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <Space> <C-w>w
 " Shift+Option+l
 nnoremap Ò<cmd> Telescope help_tags<CR>
 
@@ -120,6 +119,8 @@ nnoremap Ò<cmd> Telescope help_tags<CR>
 :colorscheme OceanicNext
 
 " Lua settings
+lua require("nvim-autopairs").setup {}
 lua require("user.gitsigns_rc")
 lua require("user.lsp")
 lua require("user.icons")
+lua require("user.treesitter_config")
