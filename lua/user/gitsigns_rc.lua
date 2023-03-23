@@ -1,4 +1,4 @@
-require('gitsigns').setup {
+require("gitsigns").setup {
 	on_attach = function(bufnr)
 		local gs = package.loaded.gitsigns
 
@@ -26,4 +26,3 @@ require('gitsigns').setup {
 
 	end
 }
-
