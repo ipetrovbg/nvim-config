@@ -9,21 +9,40 @@ set softtabstop=2
 set mouse=a
 set splitright
 set encoding=UTF-8
-set guicursor=a:blinkwait5-blinkon1-blinkoff5
-set wrap!
+set ignorecase
+set smartcase
+
+" The blinking cursor is done by the alacritty config file. See ~/.alacritty.yml
+
+set nowrap
 set cursorcolumn
 set cursorline
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
+" ]s to go to the next spell mistake
+" z= to see all "correct" variants
+" 1z= to use vim's first suggestion
+" zg add word under the cursor to the dictionary
+" zw undo and remove a word from dictionary
+" colour
+set spelllang=en_gb
+set spell
 
-set updatetime=50
-augroup HighlightUnderCursor
-  au!
-  au CursorHold * :exec 'match Search /' . escape('\V\<' . expand('<cword>') . '\>', '/') . '/'
-augroup END
+" set so=999
+" set so=0
+
+" augroup VCenterCursor
+"   au!
+"   au BufEnter,WinEnter,WinNew,VimResized *,*.*
+"         \ let &scrolloff=winheight(win_getid())/2
+" augroup END
 
 augroup ElmFormatOnSave
-	au!
+  au!
+	" formats elm files on save
   au BufWritePre *.elm :Format 
+	" formats json files on save
+  au BufWritePre *.json :%!jq . 
 augroup END
 
 augroup CursorLine
@@ -32,11 +51,9 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" Centering while navigating
-nnoremap j jzz
-nnoremap k kzz
-nnoremap <Down> jzz
-nnoremap <Up> kzz
-nnoremap } }zz
-nnoremap { {zz
-nnoremap % %zz 
+" This setting will highlight the cues that you can search for only when you press f, F, t, or T.
+" It doesn't work with f, F for some reason. One reason might be that I
+" already have a mapping for ff and F that searches for word in the file or
+" searches files in the project.
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_max_chars=150

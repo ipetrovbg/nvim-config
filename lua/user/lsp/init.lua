@@ -1,8 +1,4 @@
 local status_ok, autotag = pcall(require('nvim-ts-autotag'))
-if not status_ok then
-	-- print("nvim-ts-autotag was not OK")
-	print(autotag)
-end
 if status_ok then
 	autotag.setup {}
 end
@@ -39,15 +35,16 @@ end
 
 
 require("telescope").setup {
-  extensions = {
-    ["ui-select"] = {
-		-- Custom picket
-		lsp_buff_errors = {
-			make_index = vim.diagnostic.setloclist
+	extensions = {
+		["ui-select"] = {
+			-- Custom picket
+			lsp_buff_errors = {
+				make_index = vim.diagnostic.setloclist
+			}
 		}
 	}
-  }
 }
+
 require('user.lsp.mason')
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension('harpoon')
