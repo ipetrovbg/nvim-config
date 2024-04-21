@@ -20,7 +20,7 @@ local opts = {
     lazy = true,
   },
   install = {
-    colorscheme = { "tokyonight-moon" }
+    colorscheme = { "gruvbox" } -- "tokyonight-moon"
   },
   rtp = {
     disabled_plugins = {
