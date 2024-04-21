@@ -1,13 +1,14 @@
 local highlight = {
-	"CursorColumn",
-	"Whitespace",
+  "CursorColumn",
+  "Whitespace",
 }
 
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	lazy = false,
-	opts = {
-		indent = { highlight = highlight, char = "│" },
-	},
+  "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
+  lazy = true,
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {
+    indent = { highlight = highlight, char = "│" },
+  },
 }

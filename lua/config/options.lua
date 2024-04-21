@@ -53,3 +53,4 @@ opt.spell = true
 vim.g.qs_buftype_blacklist = { "terminal", "nofile" }
 vim.g.qs_max_chars = 180
 vim.g.qs_lazy_highlight = true
+-- vim.g.floaterm_keymap_new = '<Leader>ft'

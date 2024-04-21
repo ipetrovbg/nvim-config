@@ -188,26 +188,37 @@ local config = function()
     on_attach = on_attach,
     settings = {
       ["rust-analyzer"] = {
+        memoryUsage = true,
+        syntaxTree = true,
+        analyzerStatus = true,
+        reloadWorkspace = true,
+        run = true,
         procMacro = {
           enable = true,
         },
         inlayHints = {
+          bindingModeHints = {
+            enable = false,
+          },
           chainingHints = {
             enable = false,
           },
+          closingBraceHints = {
+            enable = false,
+          },
+          closureReturnTypeHints = {
+            enable = false,
+          },
+          parameterHints = {
+            enable = false,
+          },
+          typeHints = {
+            enable = false,
+          },
+          renderColons = false,
         },
-        closingBraceHints = {
-          enable = false,
-        },
-        closureReturnTypeHints = {
-          enable = false,
-        },
-        renderColons = false,
-        parameterHints = {
-          enable = false,
-        },
-        typeHints = {
-          enable = false,
+        diagnostics = {
+          disabled = { "inactive-code" }
         },
       },
     },
@@ -217,7 +228,8 @@ end
 return {
   "neovim/nvim-lspconfig",
   config = config,
-  lazy = false,
+  lazy = true,
+  event = { "BufReadPre", "BufNewFile", "BufRead" },
   dependencies = {
     "windwp/nvim-autopairs",
     -- "creativenull/efmls-configs-nvim",
