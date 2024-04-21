@@ -19,7 +19,7 @@ opt.smartcase = true
 opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
--- opt.colorcolumn = "100"
+opt.colorcolumn = "80"
 opt.cursorline = true
 opt.signcolumn = "yes"
 opt.cmdheight = 1
@@ -34,15 +34,16 @@ opt.backup = false
 opt.undodir = vim.fn.expand("~/.vim/undodir")
 opt.undofile = true
 opt.backspace = "indent,eol,start"
--- opt.splitright = true
+opt.splitright = true
 opt.splitbelow = false
 opt.autochdir = false
 opt.iskeyword:append("-")
 opt.mouse:append("a")
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append("unnamed,unnamedplus")
 opt.modifiable = true
-opt.guicursor =
-	"n-v-c:block-nCursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175"
+-- Blinking cursor doesn't work
+-- opt.guicursor =
+-- "n-v-c:block-nCursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175"
 opt.encoding = "UTF-8"
 opt.updatetime = 400
 
