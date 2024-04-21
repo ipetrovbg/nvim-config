@@ -1,3 +1,3 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.rustfmt_autosave = 1
+vim.opt.conceallevel = 1
