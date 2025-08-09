@@ -19,6 +19,9 @@ vim.keymap.set("n", "<leader>g", ":G blame<CR>", opts)
 vim.keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", opts)
 vim.keymap.set("n", "<leader>hr", ":lua require('harpoon.mark').toggle_file()<CR>", opts)
 
+-- gh browse
+vim.keymap.set("n", "<leader>gb", ":GhBrowse<CR>", opts)
+
 -- DB
 vim.keymap.set("n", "<leader>db", ":DBUIToggle<CR>", opts)
 
@@ -29,21 +32,38 @@ vim.keymap.set("n", "<leader>os", ":ObsidianSearch<CR>", opts)
 vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<CR>", opts)
 vim.keymap.set("n", "<leader>ol", ":ObsidianLinks<CR>", opts)
 vim.keymap.set("n", "<leader>oo", ":ObsidianOpen<CR>", opts)
+vim.keymap.set("n", "<leader>of", ":ObsidianQuickSwitch<CR>", opts)
 
 -- Markdown
 vim.keymap.set("n", "<leader>md", ":MarkdownPreview<CR>", opts)
 
 -- Show the weather
-vim.keymap.set("n", "<leader>wt", ":!curl 'wttr.in?format=3'<CR>", opts)
+vim.keymap.set("n", "<leader>wt", ":!curl 'wttr.in/Sofia?format=3'<CR>", opts)
 
 -- Intelrs
--- vim.keymap.set("n", "<leader>i", ":tabnew | enew | r ! intelrs<CR>", opts)
-vim.keymap.set("n", "<leader>i", ":FloatermNew --width=0.5 intelrs<CR>", opts)
--- vim.keymap.set("n", "<leader>i", function()
---   require("./config/intels").show()
--- end, opts)
+vim.keymap.set("n", "<leader>i", function()
+  require("./config/intels").show()
+end, opts)
+
+-- Jira
+vim.keymap.set("n", "<leader>j", function()
+  require("./config/jira").show()
+end, opts)
 
 vim.keymap.set("n", "<leader>dd", ":bdelete!<CR>", opts)
 
 -- LazyGit
 vim.keymap.set("n", "<leader>gg", ":FloatermNew --width=1.0 --height=1.0 lazygit<CR>", opts)
+
+-- GitHub PRs
+vim.keymap.set("n", "<leader>gh", ":Ghpr<CR>", opts)
+
+-- Multi-cursor
+vim.keymap.set("n", "<leader>vp", "<Plug>(VM-Add-Cursor-At-Pos)", opts)
+vim.keymap.set("n", "<leader>vt", "<Plug>(VM-Toggle-Mappings)", opts)
+
+vim.keymap.set("i", "jj", "<Esc><CR>", opts)
+
+-- s/\%V\(\k\+\)\(\s*[,|:]\s*\)\(\k\+\)/\3\2\1/
+vim.keymap.set("v", "<leader>ww", ":<C-u>'<,'>s/\\%V\\(\\k\\+\\)\\(\\s*[ ,|:]\\s*\\)\\(\\k\\+\\)/\\3\\2\\1/<CR>:noh<CR>",
+  { noremap = true, silent = true })

@@ -9,18 +9,27 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require('config.globals')
 require('config.options')
 require('config.keymaps')
 
+-- Intro
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  group = vim.api.nvim_create_augroup("Intro", { clear = true }),
+  callback = function()
+    vim.cmd(":intro")
+  end
+})
+
 local opts = {
   defaults = {
     lazy = true,
   },
   install = {
-    colorscheme = { "gruvbox" } -- "tokyonight-moon"
+    colorscheme = { "tokyonight-moon" } -- "tokyonight-moon", gruvbox
   },
   rtp = {
     disabled_plugins = {
@@ -41,3 +50,4 @@ local opts = {
 }
 
 require("lazy").setup('plugins', opts)
+-- require("gh-browse").setup()

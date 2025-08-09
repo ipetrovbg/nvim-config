@@ -32,6 +32,12 @@ return {
         { name = "copilot" },  -- copilot autocompletion
         { name = "buffer" },   -- text within current buffer
         { name = "path" },     -- file system paths
+        -- {
+        --   name = "dotenv",
+        --   option = {
+        --     path = '~/.config/nvim/.env',
+        --   }
+        -- }
       }),
       formatting = {
         expandable_indicator = true,

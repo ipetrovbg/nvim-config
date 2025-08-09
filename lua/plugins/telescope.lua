@@ -7,6 +7,7 @@ return {
   -- or                              , branch = '0.1.x',
   dependencies = {
     "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = 'make' },
     "nvim-telescope/telescope-ui-select.nvim",
     "piersolenski/telescope-import.nvim",
     "ThePrimeagen/harpoon",
@@ -22,6 +23,7 @@ return {
     mapkey("<leader>l", "Telescope resume", "n"),
     mapkey("<leader>cf", "Telescope current_buffer_fuzzy_find", "n"),
     mapkey("<leader>hh", "Telescope harpoon marks", "n"),
+    mapkey("<leader>s", "Telescope lsp_document_symbols", "n"),
   },
   config = function()
     -- vim.api.nvim_create_autocmd("UIEnter", {
@@ -34,6 +36,7 @@ return {
 
     require("telescope").setup({
       extensions = {
+        fzf = {},
         fzy_native = {
           override_generic_sorter = false,
           override_file_sorter = true,
@@ -51,5 +54,6 @@ return {
         harpoon = {},
       },
     })
+    require("telescope").load_extension("fzf")
   end,
 }

@@ -13,7 +13,6 @@ opt.wrap = false
 opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
--- opt.hlsearch = false
 
 -- Appearance
 opt.number = true
@@ -41,9 +40,6 @@ opt.iskeyword:append("-")
 opt.mouse:append("a")
 opt.clipboard:append("unnamed,unnamedplus")
 opt.modifiable = true
--- Blinking cursor doesn't work
--- opt.guicursor =
--- "n-v-c:block-nCursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175"
 opt.encoding = "UTF-8"
 opt.updatetime = 400
 
@@ -53,4 +49,3 @@ opt.spell = true
 vim.g.qs_buftype_blacklist = { "terminal", "nofile" }
 vim.g.qs_max_chars = 180
 vim.g.qs_lazy_highlight = true
--- vim.g.floaterm_keymap_new = '<Leader>ft'

@@ -1,7 +1,8 @@
 return {
+  "github/copilot.vim",
   -- "zbirenbaum/copilot.lua",
-  -- lazy = true,
-  -- event = { "BufReadPre" },
+  lazy = true,
+  event = "BufRead",
   -- opts = {
   --   panel = {
   --     enabled = true,

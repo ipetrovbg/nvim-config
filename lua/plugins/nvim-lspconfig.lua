@@ -40,7 +40,7 @@ local function lsp_keymaps(bufnr)
 end
 
 local on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == "ts_ls" then
     client.server_capabilities.document_formatting = true
   end
   if client.name == "eslint" then
@@ -96,7 +96,7 @@ local config = function()
   })
 
   -- Typescript additional settins
-  lspconfig.tsserver.setup({
+  lspconfig.ts_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = {
@@ -218,7 +218,7 @@ local config = function()
           renderColons = false,
         },
         diagnostics = {
-          disabled = { "inactive-code" }
+          disabled = { "inactive-code", "unresolved-proc-macro" }
         },
       },
     },

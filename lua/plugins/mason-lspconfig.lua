@@ -1,6 +1,6 @@
 local opts = {
 	ensure_installed = {
-		"tsserver",
+		"ts_ls",
 		"cssmodules_ls",
 		"emmet_ls",
 		"html",

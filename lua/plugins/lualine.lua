@@ -8,7 +8,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "gruvbox", -- gruvbox, tokyonight, catppuccin
+        theme = "tokyonight", -- gruvbox, tokyonight, catppuccin
         globalstatus = true,
       },
       tabline = {
