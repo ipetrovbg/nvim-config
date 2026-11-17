@@ -20,6 +20,7 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.colorcolumn = "80"
 opt.cursorline = true
+opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor"
 opt.signcolumn = "yes"
 opt.cmdheight = 1
 opt.scrolloff = 10
@@ -44,8 +45,8 @@ opt.encoding = "UTF-8"
 opt.updatetime = 400
 
 -- Spellcheck
-opt.spelllang = "en_gb"
-opt.spell = true
+-- opt.spelllang = "en_gb"
+-- opt.spell = true
 vim.g.qs_buftype_blacklist = { "terminal", "nofile" }
 vim.g.qs_max_chars = 180
 vim.g.qs_lazy_highlight = true

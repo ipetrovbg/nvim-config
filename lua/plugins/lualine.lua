@@ -8,7 +8,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "tokyonight", -- gruvbox, tokyonight, catppuccin
+        theme = require("config.lualine-colourscheme").get("kanso-zen"), -- kanso-pearl, kanso-zen
         globalstatus = true,
       },
       tabline = {
@@ -30,8 +30,8 @@ return {
         lualine_z = {},
       },
       sections = {
-        lualine_a = { "mode", "branch" },
-        lualine_b = { "diff", "location" },
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "location" },
         lualine_c = {
           require("lsp-progress").progress,
         },

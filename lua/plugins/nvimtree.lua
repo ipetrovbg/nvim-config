@@ -3,7 +3,7 @@ return {
   lazy = false,
   config = {
     view = {
-      width = 50,
+      width = 40,
     },
     filters = {
       dotfiles = false,

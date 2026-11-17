@@ -18,7 +18,7 @@ M.show = function(opts)
     local jira_token = keychain.get_keychain_value("jira", "jira_nvim_token")
     local jira_user = keychain.get_keychain_value("jira", "jira_nvim_user")
 
-    local jira_sprint_body = { jql = "Sprint = \"Sprint Name\"" }
+    local jira_sprint_body = { jql = "Sprint = \"Post Booking Sprint 111\"" }
     local jira_brower = jira_url .. "/browse/"
 
     local response = curl.post(jira_url .. "/rest/api/2/search", {

@@ -1,3 +1,4 @@
+local merge = require("util.keymapper").table_merge
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then
@@ -17,8 +18,10 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
+    merge(opts, { desc = "Go to Definition" }))
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>",
+    merge(opts, { desc = "Hover Documentation" }))
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
@@ -26,7 +29,8 @@ local function lsp_keymaps(bufnr)
 
   -- Option + m
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-m>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>",
+    merge(opts, { desc = "Open Diagnostic" }))
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
@@ -55,7 +59,6 @@ end
 
 local config = function()
   local cmp_nvim_lsp = require("cmp_nvim_lsp")
-  local lspconfig = require("lspconfig")
 
   -- for type, icon in pairs(diagnostic_signs) do
   --	local hl = "DiagnosticSign" .. type
@@ -64,7 +67,7 @@ local config = function()
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   -- lua
-  lspconfig.lua_ls.setup({
+  vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = { -- custom settings for lua
@@ -85,7 +88,7 @@ local config = function()
   })
 
   -- json
-  lspconfig.jsonls.setup({
+  vim.lsp.config("jsonls", {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "json", "jsonc" },
@@ -96,7 +99,7 @@ local config = function()
   })
 
   -- Typescript additional settins
-  lspconfig.ts_ls.setup({
+  vim.lsp.config("ts_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = {
@@ -107,13 +110,14 @@ local config = function()
       "javascript.jsx",
       "typescript.tsx",
     },
-    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+    root_dir = function(bufnr, on_dir)
+      on_dir(vim.fs.root(bufnr, { ".git", "package.json", "tsconfig.json" }))
+    end,
     cmd = { "typescript-language-server", "--stdio" },
-    single_file_support = true,
     init_options = {
       hostInfo = "neovim",
     },
-    settins = {
+    settings = {
       completions = {
         completeFunctionCalls = true,
       },
@@ -121,7 +125,7 @@ local config = function()
   })
 
   -- yaml
-  lspconfig.yamlls.setup({
+  vim.lsp.config("yamlls", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -137,7 +141,7 @@ local config = function()
   })
 
   -- Grpaql additional settins
-  lspconfig.graphql.setup({
+  vim.lsp.config("graphql", {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "graphql", "typescriptreact", "javascriptreact" },
@@ -150,7 +154,7 @@ local config = function()
   })
 
   -- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-  lspconfig.emmet_ls.setup({
+  vim.lsp.config("emmet_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = {
@@ -167,13 +171,13 @@ local config = function()
     },
   })
 
-  lspconfig.eslint.setup {
+  vim.lsp.config("eslint", {
     capabilities = capabilities,
     on_attach = on_attach,
-  }
+  })
 
   -- Elm
-  lspconfig.elmls.setup({
+  vim.lsp.config("elmls", {
     capabilities = capabilities,
     on_attach = on_attach,
     init_options = {
@@ -183,7 +187,10 @@ local config = function()
   })
 
   -- Rust
-  lspconfig.rust_analyzer.setup({
+  vim.lsp.config("rust_analyzer", {
+    root_dir = function(bufnr, on_dir)
+      on_dir(vim.fs.root(bufnr, { ".git" }))
+    end,
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -193,12 +200,22 @@ local config = function()
         analyzerStatus = true,
         reloadWorkspace = true,
         run = true,
+        cargo = {
+          features = "all", -- Enable all features
+        },
         procMacro = {
           enable = true,
+          ignored = {
+            leptos_macro = {
+              -- optional: --
+              -- "component",
+              "server",
+            },
+          },
         },
         inlayHints = {
           bindingModeHints = {
-            enable = false,
+            enable = true,
           },
           chainingHints = {
             enable = false,
@@ -222,6 +239,18 @@ local config = function()
         },
       },
     },
+  })
+
+  vim.lsp.enable({
+    "lua_ls",
+    "jsonls",
+    "ts_ls",
+    "yamlls",
+    "graphql",
+    "emmet_ls",
+    "eslint",
+    "elmls",
+    "rust_analyzer",
   })
 end
 

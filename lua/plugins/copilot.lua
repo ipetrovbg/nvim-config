@@ -2,7 +2,7 @@ return {
   "github/copilot.vim",
   -- "zbirenbaum/copilot.lua",
   lazy = true,
-  event = "BufRead",
+  -- event = "BufRead",
   -- opts = {
   --   panel = {
   --     enabled = true,

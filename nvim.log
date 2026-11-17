@@ -1,0 +1,6 @@
+WRN 2026-09-03T07:19:46.639 ?.9968     server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/KqwIJG/nvim.9968.0
+WRN 2026-09-03T07:19:46.725 ?.9965     server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/2XdFK1/nvim.9965.0
+WRN 2026-09-03T07:20:07.901 ?.10026    server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/sfcLp3/nvim.10026.0
+WRN 2026-10-15T08:27:52.680 ?.25630    server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/VTip21/nvim.25630.0
+WRN 2026-10-15T08:27:56.370 ?.25649    server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/Ri0oBg/nvim.25649.0
+WRN 2026-10-15T08:28:01.486 ?.25701    server_start:197: Failed to start server: operation not permitted: /var/folders/ml/5x3b6tl96kjgft8kv2n3_jlh0000gn/T/nvim.petarpetrov/eYVhHF/nvim.25701.0
